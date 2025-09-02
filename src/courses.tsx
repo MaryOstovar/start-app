@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
     Card,
     CardContent,
@@ -6,6 +7,9 @@ import {
     Box,
     Grid,
     CardActionArea,
+    Dialog,
+    DialogTitle,
+    DialogContent,
 } from "@mui/material";
 
 type Course = {
@@ -44,12 +48,43 @@ const courses: Course[] = [
 ];
 
 export default function Courses() {
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        setOpen(true);
+    }, []);
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const handleCardClick = (course: Course) => {
-        alert(`You clicked on: ${course.title}`);
+        alert(`TODO: implement the naviagtion to the steps page for course: ${course.title}`);
     };
 
     return (
         <Box p={2}>
+            <Dialog open={open} onClose={handleClose}
+            sx={{
+                "& .MuiDialog-paper": {
+                    borderRadius: 4,
+                    backgroundColor: "#009C82",
+                    color: "#ffffff"
+                },
+            }}>
+                <DialogTitle>Welcome</DialogTitle>
+                <DialogContent>
+                    <Typography align="left" gutterBottom>You are logged in to the Saxion intake application "Start".</Typography>
+                    <Typography align="left" gutterBottom>You have shown interest and/or applied for a programme at Saxion. To prepare you for your (possible) start, an intake activity follows.</Typography>
+                    <Typography align="left" gutterBottom>In this app you arrange everything related to this, so check regularly for status updates. You will receive information and notifications by e-mail.</Typography>
+                    <Box display="flex" justifyContent="flex-end" mt={2}>
+                        <Typography onClick={handleClose} sx={{cursor: 'pointer', display: 'inline-block', }}>
+                            ok
+                        </Typography>
+                    </Box>
+                </DialogContent>
+            </Dialog>
+
             <Typography gutterBottom>courses applied:</Typography>
             <Grid container spacing={2} direction="column">
                 {courses.map((course, idx) => (
