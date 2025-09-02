@@ -85,7 +85,7 @@ export default function Courses() {
                 </DialogContent>
             </Dialog>
 
-            <Typography gutterBottom>courses applied:</Typography>
+            <Typography gutterBottom>Courses applied to:</Typography>
             <Grid container spacing={2} direction="column">
                 {courses.map((course, idx) => (
                     <Grid key={idx}>
