@@ -60,7 +60,7 @@ export default function Courses() {
         setDialogOpen(false);
     };
 
-    const handleCardClick = (course: Course) => {
+    const handleCardClick = () => {
         navigate("/steps")
     };
 
