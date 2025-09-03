@@ -63,7 +63,16 @@ export default function Courses() {
     };
 
     return (
-        <Box p={2} display="flex" flexDirection="column" justifyContent="center" alignItems="center" width="100vw">
+        <Box sx={{
+                minHeight: "100vh",
+                minWidth: "100vw",
+                bgcolor: (t) =>
+                    t.palette.mode === "light" ? "grey.100" : "background.default",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+            }}>
             <Dialog open={openDialog} onClose={handleDialogClose}
             sx={{
                 "& .MuiDialog-paper": {
@@ -86,7 +95,7 @@ export default function Courses() {
                 </DialogContent>
             </Dialog>
 
-            <Typography gutterBottom>Courses applied to:</Typography>
+            <Typography paddingBottom="1vh" fontSize="large" fontWeight="bold" color="black">Courses applied to:</Typography>
             <Grid justifyContent={"center"} container spacing={2} direction="column">
                 {courses.map((course, idx) => (
                     <Grid key={idx}>
