@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import Home from './Home';
 import Steps from "./steps.tsx";
+import Appointments from "./appointments.tsx";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
             <Route  path="/" element={<Home />} />
             <Route  path="/steps" element={<Steps/>} />
+            <Route  path="/appointments" element={<Appointments/>} />
         </Routes>
       </BrowserRouter>
 
