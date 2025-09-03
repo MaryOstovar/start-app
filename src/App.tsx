@@ -6,8 +6,6 @@ import TaskForm from "./Tasks/TaskForm.tsx";
 import TaskUploadDoc from "./Tasks/TaskUploadDoc.tsx";
 import Courses from './courses'
 import Steps from "./steps.tsx";
-import { BrowserRouter, Route, Routes, } from "react-router-dom";
-
 import Layout from "./components/Layout";
 import ResultPage from "./ResultPage";
 import Appointments from "./appointments.tsx";

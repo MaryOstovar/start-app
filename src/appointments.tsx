@@ -17,10 +17,6 @@ const appointments: Appointment[] = [
         title: "Intake meeting 1",
         date: "09-09-2000 9:00",
     },
-    {
-        title: "Intake meeting 2",
-        date: "10-10-2000 10:45",
-    },
 ];
 
 import { useNavigate } from "react-router-dom";

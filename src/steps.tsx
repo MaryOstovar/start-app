@@ -1,7 +1,4 @@
 import {
-    AppBar,
-    Toolbar,
-    IconButton,
     Typography,
     Container,
     Button,
@@ -11,8 +8,6 @@ import {
     CardContent,
     Chip,
 } from "@mui/material";
-import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import Logo from "/logo.png"
 import {useNavigate} from "react-router-dom";
 
 
@@ -104,7 +99,7 @@ export default function StepsPage() {
     const allDone = steps.every((s) => s.status === "completed");
 
     return (
-<Box p="2" sx={{
+        <Box p="2" sx={{
             minHeight: "100vh",
             minWidth: "100vw",
             bgcolor: (t) =>
@@ -132,20 +127,6 @@ export default function StepsPage() {
                 </Stack>
             </Container>
 
-
-            {/* <Container maxWidth="sm" sx={{ pb: 1 }}>
-                <Button
-                    fullWidth
-                    size="large"
-                    variant="contained"
-                    color="success"
-                    disabled={!allDone}
-                    onClick={() => console.log("Continue")}
-                    sx={{ borderRadius: 2 , mt: 1}}
-                >
-                    CONTINUE
-                </Button>
-            </Container> */}
             <Box
                 position="fixed"
                 bottom={16}

@@ -2,8 +2,8 @@
 import * as React from "react";
 import {
     Box,
+    Button,
     Chip,
-    Container,
     Divider,
     Paper,
     Stack,
@@ -12,17 +12,13 @@ import {
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 
-/* ----------------------------- styled-in-file ----------------------------- */
-const Root = styled(Container)(() => ({
-    paddingTop: 16,
-    paddingBottom: 24,
-}));
 
 const Card = styled(Paper)(({ theme }) => ({
     position: "relative",
     borderRadius: 16,
     padding: theme.spacing(2),
-    marginBottom: theme.spacing(2.5),
+    margin: theme.spacing(2.5),
+    minWidth: "80%",
     boxShadow:
         "0px 2px 2px rgba(0,0,0,0.02), 0px 8px 20px rgba(0,0,0,0.08)",
     cursor: "pointer",
@@ -35,7 +31,6 @@ const Card = styled(Paper)(({ theme }) => ({
     outline: "none",
 }));
 
-// NEW: grid so the status chip lives in its own column
 const CardGrid = styled("div")(({ theme }) => ({
     display: "grid",
     gridTemplateColumns: "1fr auto",
@@ -44,7 +39,7 @@ const CardGrid = styled("div")(({ theme }) => ({
 }));
 
 const ContentCol = styled(Box)(() => ({
-    minWidth: 0, // prevents text from overflowing when space is tight
+    minWidth: 0,
 }));
 
 const SideCol = styled("div")(({ theme }) => ({
@@ -61,8 +56,6 @@ const CardTitleRow = styled("div")(({ theme }) => ({
     marginBottom: theme.spacing(1),
 }));
 
-
-
 const StatusChip = styled(Chip)(({ theme }) => ({
     fontWeight: 700,
     color: theme.palette.common.white,
@@ -76,7 +69,7 @@ const StatusChip = styled(Chip)(({ theme }) => ({
 
 /* ---------------------------------- copy ---------------------------------- */
 const strings = {
-    header: { title: "tasks" },
+    header: { title: "Tasks" },
     assessment: {
         title: "Assessment",
         status: "Submitted",
@@ -99,6 +92,15 @@ const strings = {
 /* --------------------------------- page ----------------------------------- */
 const TasksPage: React.FC = () => {
     const navigate = useNavigate();
+
+        const handleNextClick = () => {
+        navigate('/step/upload')
+    };
+
+    const handlePrevClick = () => {
+        navigate('/step/appointments')
+    };
+
     const router = React.useMemo(
         () => ({ navigate: (to: string | number) => navigate(to as any) }),
         [navigate]
@@ -108,9 +110,17 @@ const TasksPage: React.FC = () => {
     const openHomeAssignments = () => router.navigate("/step/tasks/attachments");
 
     return (
-        <Root maxWidth="sm">
+        <Box p="2" sx={{
+            minHeight: "100vh",
+            minWidth: "100vw",
+            bgcolor: (t) =>
+                t.palette.mode === "light" ? "grey.100" : "background.default",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+        }}>
             <Stack spacing={1} sx={{ mt: 2, mb: 2 }}>
-                <Typography variant="h5" sx={{ textTransform: "lowercase", fontWeight: 700 }}>
+                <Typography variant="h5" sx={{ fontWeight: 700, color: 'black'  }}>
                     {strings.header.title}
                 </Typography>
             </Stack>
@@ -125,7 +135,7 @@ const TasksPage: React.FC = () => {
                 <CardGrid>
                     <ContentCol>
                         <CardTitleRow>
-                            <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                            <Typography variant="h6" sx={{ fontWeight: 700}}>
                                 {strings.assessment.title}
                             </Typography>
                         </CardTitleRow>
@@ -186,7 +196,41 @@ const TasksPage: React.FC = () => {
                     </SideCol>
                 </CardGrid>
             </Card>
-        </Root>
+            <Box
+                position="fixed"
+                bottom={16}
+                left={0}
+                right={0}
+                px={2}
+                display="flex"
+                justifyContent="space-between"
+                >
+                    <Button
+                    size="large"
+                    variant="text"
+                    onClick={handlePrevClick}
+                    sx={{
+                        borderRadius: 2,
+                        color: "black",
+                        backgroundColor: "transparent",
+                        "&:hover": {
+                        backgroundColor: "rgba(0,0,0,0.05)",
+                        },
+                    }}
+                    >
+                    Prev
+                    </Button>
+
+                <Button
+                    size="large"
+                    variant="contained"
+                    sx={{ borderRadius: 2, backgroundColor: "#009C82" }}
+                    onClick={handleNextClick}
+                >
+                    Next
+                </Button>
+                </Box>
+        </Box>
     );
 };
 
