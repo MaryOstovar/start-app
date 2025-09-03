@@ -48,14 +48,14 @@ const courses: Course[] = [
 ];
 
 export default function Courses() {
-    const [open, setOpen] = useState(false);
+    const [openDialog, setDialogOpen] = useState(false);
 
     useEffect(() => {
-        setOpen(true);
+        setDialogOpen(true);
     }, []);
 
-    const handleClose = () => {
-        setOpen(false);
+    const handleDialogClose = () => {
+        setDialogOpen(false);
     };
 
     const handleCardClick = (course: Course) => {
@@ -64,7 +64,7 @@ export default function Courses() {
 
     return (
         <Box p={2} display="flex" flexDirection="column" justifyContent="center" alignItems="center" width="100vw">
-            <Dialog open={open} onClose={handleClose}
+            <Dialog open={openDialog} onClose={handleDialogClose}
             sx={{
                 "& .MuiDialog-paper": {
                     borderRadius: 4,
@@ -79,7 +79,7 @@ export default function Courses() {
                     <Typography align="left" gutterBottom>You have shown interest and/or applied for a programme at Saxion. To prepare you for your (possible) start, an intake activity follows.</Typography>
                     <Typography align="left" gutterBottom>In this app you arrange everything related to this, so check regularly for status updates. You will receive information and notifications by e-mail.</Typography>
                     <Box display="flex" justifyContent="flex-end" mt={2}>
-                        <Typography onClick={handleClose} sx={{cursor: 'pointer', display: 'inline-block', }}>
+                        <Typography onClick={handleDialogClose} sx={{cursor: 'pointer', display: 'inline-block', }}>
                             ok
                         </Typography>
                     </Box>
