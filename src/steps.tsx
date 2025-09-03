@@ -12,9 +12,8 @@ import {
     Chip,
 } from "@mui/material";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
-import Logo from "/logo.png"
-import {useNavigate} from "react-router-dom";
-
+import Logo from "/logo.png";
+import { useNavigate } from "react-router-dom";
 
 type StepStatus = "completed" | "todo" | "rejected" | "in_progress";
 
@@ -26,34 +25,48 @@ interface StepItem {
     highlighted?: boolean;
 }
 
+// ✨ Polished copy
 const steps: StepItem[] = [
-    { id: "upload", title: "Upload documents", description: "Lorem...", status: "completed" },
-    { id: "tasks", title: "Tasks", description: "Lorem...", status: "completed", highlighted: true },
-    { id: "appointments", title: "Appointments", description: "Lorem...", status: "todo" },
-    { id: "results", title: "Results", description: "Lorem...", status: "rejected" },
+    {
+        id: "upload",
+        title: "Upload documents",
+        description:
+            "Add the required files (PDF, JPG or PNG). You’ll see them listed once the upload finishes.",
+        status: "completed",
+    },
+    {
+        id: "tasks",
+        title: "Tasks",
+        description:
+            "Answer the short questionnaire and attach your CV and work samples.",
+        status: "completed",
+        highlighted: true,
+    },
+    {
+        id: "appointments",
+        title: "Appointments",
+        description: "Pick a time slot for your intake interview.",
+        status: "todo",
+    },
+    {
+        id: "results",
+        title: "Results",
+        description: "View your application decision and next steps.",
+        status: "rejected",
+    },
 ];
-
-interface StepItem {
-    id: string;
-    title: string;
-    description?: string;
-    status: StepStatus;
-    highlighted?: boolean;
-}
-
 
 const STATUS_CONFIG: Record<
     StepStatus,
     { label: string; color: "success" | "error" | "warning" | "default"; variant: "filled" | "outlined" }
 > = {
     completed: { label: "COMPLETED", color: "success", variant: "filled" },
-    todo: { label: "TO BE DONE", color: "default", variant: "outlined" },
+    todo: { label: "TO DO", color: "default", variant: "outlined" },            // <- improved
     rejected: { label: "REJECTED", color: "error", variant: "filled" },
     in_progress: { label: "IN PROGRESS", color: "warning", variant: "filled" },
 };
 
-
-function StepCard(props: StepItem & { onClick?: (id: string) => void }) {
+const StepCard = (props: StepItem & { onClick?: (id: string) => void }) => {
     const { id, title, description, status, highlighted, onClick } = props;
     const cfg = STATUS_CONFIG[status];
 
@@ -91,11 +104,10 @@ function StepCard(props: StepItem & { onClick?: (id: string) => void }) {
             </CardContent>
         </Card>
     );
-}
-
+};
 
 export default function StepsPage() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleCardClick = (id: string) => {
         navigate(`/step/${id}`);
@@ -107,45 +119,39 @@ export default function StepsPage() {
         <Box
             sx={{
                 minHeight: "100vh",
-                bgcolor: (t) =>
-                    t.palette.mode === "light" ? "grey.100" : "background.default",
+                bgcolor: (t) => (t.palette.mode === "light" ? "grey.100" : "background.default"),
                 display: "flex",
                 flexDirection: "column",
             }}
         >
             <AppBar position="static" color="inherit" elevation={0}>
-
-                <Toolbar >
-                    <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-                        <IconButton edge="start" aria-label="home" sx={{left: "auto"}}>
+                <Toolbar>
+                    <Box sx={{ flex: 1, display: "flex", alignItems: "center" }}>
+                        <IconButton edge="start" aria-label="home">
                             <HomeRoundedIcon />
                         </IconButton>
-                        <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-                            <img src={Logo} width="60px"/>
-                        </Box>
-                        <Box sx={{ width: 48 }} />
                     </Box>
+                    <Box sx={{ display: "flex", justifyContent: "center" }}>
+                        <img src={Logo} width="60" alt="Logo" />
+                    </Box>
+                    <Box sx={{ flex: 1 }} />
                 </Toolbar>
             </AppBar>
 
-            <Container maxWidth="sm" sx={{ flex: 1, pt:1 }}>
+            <Container maxWidth="sm" sx={{ flex: 1, pt: 1 }}>
                 <Stack spacing={1}>
                     <Box>
-                        <Typography variant="h4" >
-                            lorem ipsum
-                        </Typography>
+                        <Typography variant="h4">Your next steps</Typography>
                         <Typography color="text.secondary">
-                            Lorem ipsum dolor sit amet sanctus sed amet eirmod stet duo.
+                            Work through the items below. You can return and finish anytime.
                         </Typography>
                     </Box>
 
                     {steps.map((step) => (
                         <StepCard key={step.id} {...step} onClick={handleCardClick} />
                     ))}
-
                 </Stack>
             </Container>
-
 
             <Container maxWidth="sm" sx={{ pb: 1 }}>
                 <Button
@@ -155,9 +161,9 @@ export default function StepsPage() {
                     color="success"
                     disabled={!allDone}
                     onClick={() => console.log("Continue")}
-                    sx={{ borderRadius: 2 , mt: 1}}
+                    sx={{ borderRadius: 2, mt: 1 }}
                 >
-                    CONTINUE
+                    Continue
                 </Button>
             </Container>
         </Box>
