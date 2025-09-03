@@ -11,6 +11,7 @@ import {
     DialogTitle,
     DialogContent,
 } from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 type Course = {
     title: string;
@@ -49,6 +50,7 @@ const courses: Course[] = [
 
 export default function Courses() {
     const [openDialog, setDialogOpen] = useState(false);
+    const navigate = useNavigate()
 
     useEffect(() => {
         setDialogOpen(true);
@@ -59,7 +61,7 @@ export default function Courses() {
     };
 
     const handleCardClick = (course: Course) => {
-        alert(`TODO: implement the naviagtion to the steps page for course: ${course.title}`);
+        navigate("/steps")
     };
 
     return (

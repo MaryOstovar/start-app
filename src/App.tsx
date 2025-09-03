@@ -2,7 +2,6 @@ import {
     Routes,
     Route, BrowserRouter,
 } from "react-router-dom";
-import Home from './Home';
 import Courses from './courses'
 import Steps from "./steps.tsx";
 import Appointments from "./appointments.tsx";
@@ -12,10 +11,9 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-            <Route  path="/" element={<Home />} />
-            <Route  path="/courses" element={<Courses />} />
+            <Route  path="/" element={<Courses />} />
             <Route  path="/steps" element={<Steps/>} />
-            <Route  path="/appointments" element={<Appointments/>} />
+            <Route  path="/step/appointments" element={<Appointments/>} />
         </Routes>
     </BrowserRouter>
   )
