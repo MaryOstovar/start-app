@@ -12,7 +12,7 @@ const TaskForm = () => {
     const navigate = useNavigate();
     const [submitted, setSubmitted] = useState(false);
     return (
-        <Box>
+        <Box sx={{px:2}}>
             <Typography
                 variant="h5"
                 component="div"

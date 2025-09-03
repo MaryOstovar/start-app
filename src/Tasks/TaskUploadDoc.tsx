@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const TaskUploadDoc = () => {
     const navigate = useNavigate();
     return (
-        <Box sx={{py: 5}}>
+        <Box sx={{p:5}}>
             <Typography
                 variant="h5"
                 component="div"
