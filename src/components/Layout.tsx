@@ -10,14 +10,11 @@ const Layout = () => {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      {/* Persistent Header */}
       <Header onMenuClick={() => setSidebarOpen(true)} />
 
-      {/* Persistent Sidebar */}
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      {/* Page Content */}
-      <Box component="main" sx={{ flex: 1, p: 2 }}>
+      <Box component="main" sx={{ flex: 1 }}>
         <Outlet />
       </Box>
     </Box>

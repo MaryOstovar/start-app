@@ -72,7 +72,6 @@ export default function Courses() {
                     t.palette.mode === "light" ? "grey.100" : "background.default",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
                 alignItems: "center",
             }}>
             <Dialog open={openDialog} onClose={handleDialogClose}
@@ -97,8 +96,8 @@ export default function Courses() {
                 </DialogContent>
             </Dialog>
 
-            <Typography paddingBottom="1vh" fontSize="large" fontWeight="bold" color="black">Courses applied to:</Typography>
-            <Grid justifyContent={"center"} container spacing={2} direction="column">
+            <Typography sx={{ marginTop: 4}} paddingBottom="1vh" fontSize="large" fontWeight="bold" color="black">Courses applied to:</Typography>
+              <Grid justifyContent={"center"} container spacing={2} direction="column" sx={{ marginBottom: 4}}>
                 {courses.map((course, idx) => (
                     <Grid key={idx}>
                         <Card sx={{borderRadius: 4, backgroundColor: course.backgroundColor,}}>

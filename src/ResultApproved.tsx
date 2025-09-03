@@ -1,21 +1,33 @@
-import { Card, CardContent, Typography, Divider, Box } from "@mui/material";
+import { Card, CardContent, Typography, Divider, Box, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ResultApproved = () => {
+      const navigate = useNavigate();
+
+      const handlePrevClick = () => {
+          navigate("/step/appointments");
+      };
+
+            const handleContinueClick = () => {
+          navigate("/");
+      };
+
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "80vh",
-        p: 2,
-      }}
-    >
+<Box p="2" sx={{
+            minHeight: "100vh",
+            minWidth: "100vw",
+            bgcolor: (t) =>
+                t.palette.mode === "light" ? "grey.100" : "background.default",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+        }}>
       <Card
         sx={{
-          width: 400,
+          maxWidth: '80vw',
           borderRadius: 4,
           boxShadow: 3,
+          marginTop: 4
         }}
       >
         <CardContent sx={{ backgroundColor: "#009C82" }}>
@@ -47,6 +59,41 @@ const ResultApproved = () => {
           </Typography>
         </CardContent>
       </Card>
+                  <Box
+                position="fixed"
+                bottom={16}
+                left={0}
+                right={0}
+                px={2}
+                display="flex"
+                justifyContent="space-between"
+                >
+                    <Button
+                    size="large"
+                    variant="text"
+                    onClick={handlePrevClick}
+                    sx={{
+                        borderRadius: 2,
+                        color: "black",
+                        backgroundColor: "transparent",
+                        "&:hover": {
+                        backgroundColor: "rgba(0,0,0,0.05)",
+                        },
+                    }}
+                    >
+                    Prev
+                    </Button>
+
+
+                <Button
+                    size="large"
+                    variant="contained"
+                    sx={{ borderRadius: 2, backgroundColor: "#009C82" }}
+                    onClick={handleContinueClick}
+                >
+                    Continue
+                </Button>
+                </Box>
     </Box>
   );
 };

@@ -23,7 +23,11 @@ const appointments: Appointment[] = [
     },
 ];
 
+import { useNavigate } from "react-router-dom";
+
 export default function Appointments() {
+    const navigate = useNavigate();
+
     const handleApproveClick = () => {
         alert(
             `TODO: connection to office API to approve the meeting`
@@ -43,15 +47,11 @@ export default function Appointments() {
     };
 
     const handleNextClick = () => {
-        alert(
-            `TODO: handle the next click`
-        );
+        navigate('/step/results')
     };
 
     const handlePrevClick = () => {
-        alert(
-            `TODO: handle the prev click`
-        );
+        navigate('/step/tasks')
     };
 
   return (
@@ -62,12 +62,11 @@ export default function Appointments() {
                 t.palette.mode === "light" ? "grey.100" : "background.default",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
             alignItems: "center",
         }}>
-        <Typography paddingBottom="1vh" fontSize="large" fontWeight="bold" color="black">Appointments</Typography>
+        <Typography sx={{ marginTop: 4}} paddingBottom="1vh" fontSize="large" fontWeight="bold" color="black">Appointments</Typography>
 
-        <Grid justifyContent={"center"} container spacing={2} direction="column">
+        <Grid justifyContent={"center"} container spacing={2} direction="column" sx={{ marginBottom: 4}}>
             {appointments.map((appointment, idx) => (
             <Grid key={idx}>
                 <Card

@@ -104,34 +104,20 @@ export default function StepsPage() {
     const allDone = steps.every((s) => s.status === "completed");
 
     return (
-        <Box
-            sx={{
-                minHeight: "100vh",
-                bgcolor: (t) =>
-                    t.palette.mode === "light" ? "grey.100" : "background.default",
-                display: "flex",
-                flexDirection: "column",
-            }}
-        >
-            <AppBar position="static" color="inherit" elevation={0}>
+<Box p="2" sx={{
+            minHeight: "100vh",
+            minWidth: "100vw",
+            bgcolor: (t) =>
+                t.palette.mode === "light" ? "grey.100" : "background.default",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+        }}>
 
-                <Toolbar >
-                    <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-                        <IconButton edge="start" aria-label="home" sx={{left: "auto"}}>
-                            <HomeRoundedIcon />
-                        </IconButton>
-                        <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-                            <img src={Logo} width="60px"/>
-                        </Box>
-                        <Box sx={{ width: 48 }} />
-                    </Box>
-                </Toolbar>
-            </AppBar>
-
-            <Container maxWidth="sm" sx={{ flex: 1, pt:1 }}>
+            <Container maxWidth="sm" sx={{ flex: 1, pt:1, marginBottom: 4  }}>
                 <Stack spacing={1}>
                     <Box>
-                        <Typography variant="h4" >
+                        <Typography variant="h4" sx={{ color: "black" }}>
                             lorem ipsum
                         </Typography>
                         <Typography color="text.secondary">
@@ -147,7 +133,7 @@ export default function StepsPage() {
             </Container>
 
 
-            <Container maxWidth="sm" sx={{ pb: 1 }}>
+            {/* <Container maxWidth="sm" sx={{ pb: 1 }}>
                 <Button
                     fullWidth
                     size="large"
@@ -159,7 +145,28 @@ export default function StepsPage() {
                 >
                     CONTINUE
                 </Button>
-            </Container>
+            </Container> */}
+            <Box
+                position="fixed"
+                bottom={16}
+                left={0}
+                right={0}
+                px={2}
+                display="flex"
+                justifyContent="space-between"
+                >
+                <Button
+                    fullWidth
+                    size="large"
+                    variant="contained"
+                    color="success"
+                    disabled={!allDone}
+                    onClick={() => console.log("Continue")}
+                    sx={{ borderRadius: 2 , mt: 1}}
+                >
+                    CONTINUE
+                </Button>
+                </Box>
         </Box>
     );
 }
