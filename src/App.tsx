@@ -5,6 +5,7 @@ import {
 import Home from './Home';
 import Courses from './courses'
 import Steps from "./steps.tsx";
+import Appointments from "./appointments.tsx";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
             <Route  path="/" element={<Home />} />
             <Route  path="/courses" element={<Courses />} />
             <Route  path="/steps" element={<Steps/>} />
+            <Route  path="/appointments" element={<Appointments/>} />
         </Routes>
     </BrowserRouter>
   )
