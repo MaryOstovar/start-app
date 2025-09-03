@@ -11,10 +11,8 @@ function App() {
     <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
             <Route path="/steps" element={<Steps/>} />
             <Route path="/result" element={<ResultPage />} />
-          
             <Route  path="/" element={<Courses />} />
             <Route  path="/steps" element={<Steps/>} />
             <Route  path="/step/appointments" element={<Appointments/>} />
@@ -23,8 +21,6 @@ function App() {
       </BrowserRouter>
 
   );
-    </BrowserRouter>
-  )
 }
 
 export default App;
