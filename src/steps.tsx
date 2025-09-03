@@ -22,10 +22,10 @@ interface StepItem {
 }
 
 const steps: StepItem[] = [
-    { id: "upload", title: "Upload documents", description: "Lorem...", status: "completed" },
-    { id: "tasks", title: "Tasks", description: "Lorem...", status: "completed", highlighted: true },
-    { id: "appointments", title: "Appointments", description: "Lorem...", status: "todo" },
-    { id: "results", title: "Results", description: "Lorem...", status: "rejected" },
+    { id: "upload", title: "Upload documents", description: "Upload the necessary documents", status: "completed" },
+    { id: "tasks", title: "Tasks", description: "Complete the necessary tasks", status: "completed"},
+    { id: "appointments", title: "Appointments", description: "Interviews with the teachers", status: "todo" },
+    { id: "results", title: "Results", description: "Verdict for your enrollment", status: "rejected" },
 ];
 
 interface StepItem {
@@ -112,11 +112,11 @@ export default function StepsPage() {
             <Container maxWidth="sm" sx={{ flex: 1, pt:1, marginBottom: 4  }}>
                 <Stack spacing={1}>
                     <Box>
-                        <Typography variant="h4" sx={{ color: "black" }}>
-                            lorem ipsum
+                        <Typography variant="h5" sx={{ color: "black" }}>
+                            ICT: Software Engineering
                         </Typography>
                         <Typography color="text.secondary">
-                            Lorem ipsum dolor sit amet sanctus sed amet eirmod stet duo.
+                            01-09-2025 | Voltijd | Deventer
                         </Typography>
                     </Box>
 

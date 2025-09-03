@@ -12,7 +12,7 @@ const TaskForm = () => {
         const navigate = useNavigate();
 
     const handleNextClick = () => {
-        navigate('/step/results')
+        navigate('/step/tasks')
     };
 
     const handlePrevClick = () => {

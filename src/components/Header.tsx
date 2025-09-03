@@ -39,20 +39,17 @@ const Header = ({ onMenuClick }: HeaderProps) => {
           alignItems: "center",
         }}
       >
-        {/* Left slot */}
         <Box sx={{ width: 48, display: "flex", justifyContent: "flex-start" }}>
           {leftButton}
         </Box>
 
-        {/* Center logo */}
         <Box
           component="img"
-          src="src/assets/logo.png"
+          src="/logo.png"
           alt="App Logo"
           sx={{ height: 40 }}
         />
 
-        {/* Right menu button */}
         <Box sx={{ width: 48, display: "flex", justifyContent: "flex-end" }}>
           <IconButton
             edge="end"

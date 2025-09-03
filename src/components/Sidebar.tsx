@@ -38,7 +38,7 @@ const Sidebar = ({ open, onClose }: SidebarProps) => {
         <ListItemButton>
           <ListItemIcon sx={{ minWidth: 32}}>
             <img
-              src={"src/assets/dutch-flag.png"}
+              src={"/dutch-flag.png"}
               alt="Dutch Flag"
               style={{ width: 24, height: 24 }}
             />

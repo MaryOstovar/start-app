@@ -94,11 +94,11 @@ const TasksPage: React.FC = () => {
     const navigate = useNavigate();
 
         const handleNextClick = () => {
-        navigate('/step/upload')
+        navigate('/step/appointments')
     };
 
     const handlePrevClick = () => {
-        navigate('/step/appointments')
+        navigate('/step/upload')
     };
 
     const router = React.useMemo(
@@ -197,13 +197,11 @@ const TasksPage: React.FC = () => {
                 </CardGrid>
             </Card>
             <Box
-                position="fixed"
-                bottom={16}
-                left={0}
-                right={0}
                 px={2}
                 display="flex"
                 justifyContent="space-between"
+                width="92%"
+                paddingBottom={2}
                 >
                     <Button
                     size="large"
