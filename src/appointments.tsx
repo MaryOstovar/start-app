@@ -54,12 +54,6 @@ export default function Appointments() {
         );
     };
 
-    const handleCardClick = (appointment: Appointment) => {
-        alert(
-        `TODO: implement the navigation to the steps page for course: ${appointment.title}`
-        );
-    };
-
   return (
         <Box sx={{
             minHeight: "100vh",
@@ -77,7 +71,6 @@ export default function Appointments() {
             {appointments.map((appointment, idx) => (
             <Grid key={idx}>
                 <Card
-                    onClick={() => handleCardClick(appointment)}
                     sx={{
                         borderRadius: 4,
                         boxShadow: 2,
