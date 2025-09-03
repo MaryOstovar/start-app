@@ -55,7 +55,7 @@ export default function Appointments() {
     };
 
   return (
-        <Box sx={{
+        <Box p="2" sx={{
             minHeight: "100vh",
             minWidth: "100vw",
             bgcolor: (t) =>
