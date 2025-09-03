@@ -1,19 +1,20 @@
-import './App.css'
-import {
-    Routes,
-    Route,
-} from "react-router-dom";
-import Home from './Home';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./Home";
+
+import Layout from "./components/Layout";
+import ResultPage from "./ResultPage";
 
 function App() {
-
   return (
-    <>
-        <Routes>
-            <Route  path="/" element={<Home />} />
-        </Routes>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/result" element={<ResultPage />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
