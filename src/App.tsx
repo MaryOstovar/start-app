@@ -7,6 +7,8 @@ import TaskUploadDoc from "./Tasks/TaskUploadDoc.tsx";
 import Courses from './courses'
 import Steps from "./steps.tsx";
 import Appointments from "./appointments.tsx";
+import TasksPage from "./TasksPage.tsx";
+import UploadSis from "./UploadSis.tsx";
 
 function App() {
 
@@ -18,6 +20,10 @@ function App() {
             <Route  path="/" element={<Courses />} />
             <Route  path="/steps" element={<Steps/>} />
             <Route  path="/step/appointments" element={<Appointments/>} />
+            <Route  path="/step/tasks" element={<TasksPage/>} />
+            <Route  path="/step/upload" element={<UploadSis/>} />
+            <Route  path="/step/tasks/assignments" element={<TaskForm/>} />
+            <Route  path="/step/tasks/attachments" element={<TaskUploadDoc/>} />
         </Routes>
     </BrowserRouter>
   )
