@@ -9,10 +9,27 @@ const validationSchema = Yup.object({
 });
 
 const TaskForm = () => {
-    const navigate = useNavigate();
+        const navigate = useNavigate();
+
+    const handleNextClick = () => {
+        navigate('/step/tasks')
+    };
+
+    const handlePrevClick = () => {
+        navigate('/step/tasks')
+    };
     const [submitted, setSubmitted] = useState(false);
     return (
-        <Box sx={{px:2}}>
+        <Box p="2" sx={{
+            minHeight: "100vh",
+            minWidth: "100vw",
+            bgcolor: (t) =>
+                t.palette.mode === "light" ? "grey.100" : "background.default",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            color: "black"
+        }}>
             <Typography
                 variant="h5"
                 component="div"
@@ -100,13 +117,42 @@ const TaskForm = () => {
                     pt: 5,
                 }}
             >
-                <Button variant="text" sx={{ color: "black" }}>
-                    Previous
-                </Button>
-                <Button variant="contained" sx={{ backgroundColor: "#007a65" }}  onClick={() => navigate("/tasks/upload-doc")}>
+            </Box>
+                                    <Box
+                position="fixed"
+                bottom={16}
+                left={0}
+                right={0}
+                px={2}
+                display="flex"
+                justifyContent="space-between"
+                >
+                    <Button
+                    size="large"
+                    variant="text"
+                    onClick={handlePrevClick}
+                    sx={{
+                        borderRadius: 2,
+                        color: "black",
+                        backgroundColor: "transparent",
+                        "&:hover": {
+                        backgroundColor: "rgba(0,0,0,0.05)",
+                        },
+                    }}
+                    >
+                    Prev
+                    </Button>
+
+
+                <Button
+                    size="large"
+                    variant="contained"
+                    sx={{ borderRadius: 2, backgroundColor: "#009C82" }}
+                    onClick={handleNextClick}
+                >
                     Next
                 </Button>
-            </Box>
+                </Box>
         </Box>
     );
 };
