@@ -102,7 +102,7 @@ export default function Courses() {
                 {courses.map((course, idx) => (
                     <Grid key={idx}>
                         <Card sx={{borderRadius: 4, backgroundColor: course.backgroundColor,}}>
-                            <CardActionArea onClick={() => handleCardClick(course)}>
+                            <CardActionArea onClick={() => handleCardClick()}>
                                 <CardHeader
                                     title={course.title}
                                     slotProps={{
