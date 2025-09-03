@@ -1,19 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./Home";
+import Home from './Home';
+import Steps from "./steps.tsx";
+import { BrowserRouter as Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import ResultPage from "./ResultPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/result" element={<ResultPage />} />
-        </Route>
-      </Routes>
-    </Router>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route  path="/" element={<Home />} />
+            <Route  path="/steps" element={<Steps/>} />
+            <Route path="/result" element={<ResultPage />} />
+            </Route>
+        </Routes>
+      </BrowserRouter>
+
   );
 }
 
