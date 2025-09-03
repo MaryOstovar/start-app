@@ -1,4 +1,3 @@
-// src/ResultPage.tsx
 import ResultApproved from "./ResultApproved";
 import ResultRejected from "./ResultRejected";
 

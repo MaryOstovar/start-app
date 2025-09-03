@@ -1,6 +1,6 @@
 import Home from './Home';
 import Steps from "./steps.tsx";
-import { BrowserRouter as Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import ResultPage from "./ResultPage";
@@ -10,10 +10,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>
-            <Route  path="/" element={<Home />} />
-            <Route  path="/steps" element={<Steps/>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/steps" element={<Steps/>} />
             <Route path="/result" element={<ResultPage />} />
-            </Route>
+          </Route>
         </Routes>
       </BrowserRouter>
 
