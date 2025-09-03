@@ -4,7 +4,8 @@ import {
     Route, BrowserRouter,
 } from "react-router-dom";
 import Home from './Home';
-import TaskForm from "./TaskForm.tsx";
+import TaskForm from "./Tasks/TaskForm.tsx";
+import TaskUploadDoc from "./Tasks/TaskUploadDoc.tsx";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
             <Route  path="/home" element={<Home />} />
             <Route  path="/" element={<Home />} />
             <Route  path="/tasks/form" element={<TaskForm />} />
+            <Route  path="/tasks/upload-doc" element={<TaskUploadDoc />} />
         </Routes>
       </BrowserRouter>
 

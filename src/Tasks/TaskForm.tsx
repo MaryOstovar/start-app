@@ -2,12 +2,14 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object({
     answer: Yup.string().required("* Please provide an answer"),
 });
 
 const TaskForm = () => {
+    const navigate = useNavigate();
     const [submitted, setSubmitted] = useState(false);
     return (
         <Box>
@@ -101,7 +103,7 @@ const TaskForm = () => {
                 <Button variant="text" sx={{ color: "black" }}>
                     Previous
                 </Button>
-                <Button variant="contained" sx={{ backgroundColor: "#007a65" }}>
+                <Button variant="contained" sx={{ backgroundColor: "#007a65" }}  onClick={() => navigate("/tasks/upload-doc")}>
                     Next
                 </Button>
             </Box>
