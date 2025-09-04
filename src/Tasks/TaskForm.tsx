@@ -20,7 +20,7 @@ const TaskForm = () => {
     };
     const [submitted, setSubmitted] = useState(false);
     return (
-        <Box p="2" sx={{
+        <Box sx={{
             minHeight: "100vh",
             minWidth: "100vw",
             bgcolor: (t) =>
@@ -29,7 +29,7 @@ const TaskForm = () => {
             flexDirection: "column",
             alignItems: "center",
             color: "black"
-        }}>
+                    }}>
             <Typography
                 variant="h5"
                 component="div"
@@ -53,9 +53,9 @@ const TaskForm = () => {
                                 display: "flex",
                                 flexDirection: "column",
                                 gap: 2,
-                                maxWidth: 400,
+                                maxWidth: '80vw',
                                 m: "auto",
-                                mt: 5,
+                                mt: 5
                             }}
                         >
                             <Typography
